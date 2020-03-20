@@ -1,0 +1,14 @@
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\bin\Debug\Haushaltsbuch.mdf
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\bin\Debug\Haushaltsbuch_log.ldf
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\bin\Debug\Haushaltbuch.exe.config
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\bin\Debug\Haushaltbuch.exe
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\bin\Debug\Haushaltbuch.pdb
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.csprojAssemblyReference.cache
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.Form1.resources
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.Neu.resources
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.Properties.Resources.resources
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.csproj.GenerateResource.cache
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.csproj.CoreCompileInputs.cache
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.exe
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.pdb
+C:\Users\myksm\source\repos\Haushaltbuch\Haushaltbuch\obj\Debug\Haushaltbuch.Liste.resources
