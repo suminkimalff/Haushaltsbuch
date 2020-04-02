@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace Haushaltbuch
 {
     public partial class Neu : Form
     {
+        Form1 form = new Form1();
         float saldo;
-        string connectionString;
-        SqlConnection cnn;
+
 
         public Neu()
         {
@@ -26,33 +27,18 @@ namespace Haushaltbuch
             monthCalendar1.ShowToday = true;
             //wird nur ein Tag gewaehlt
             monthCalendar1.MaxSelectionCount = 1;
-
-            datenbankVerbindung();
+            //Datenbank verbinden
+            //form.DatenbankVerbinden();
+           // Saldo();
         }
-
-        private void datenbankVerbindung()
+        private void Saldo()
         {
-            connectionString = @"Data Source=Haushaltsbuch;Initial Catalog=Konto ;User ID= ;Password= ";
-            cnn = new SqlConnection(connectionString);
-            cnn.Open();
-            MessageBox.Show("Connection open");
-            
-            //close connection.
-            //cnn.Close();
+            //saldo ermitteln
+            saldo = form.GetSaldo();
+            string tempsaldo = saldo.ToString("#0.00", CultureInfo.InvariantCulture);
+            saldo = Convert.ToSingle(tempsaldo);
         }
 
-        private void GetSaldo()
-        {
-            SqlCommand command;
-            SqlDataReader dataReader;
-            String sql, Output = string.Empty;
-
-            sql ="SELECT saldo FROM Konto ORDER BY id DESC;";
-            command = new SqlCommand(sql, cnn);
-            dataReader = command.ExecuteReader();
-            Output = dataReader.GetValue(0).ToString();
-            saldo = Convert.ToSingle(Output);
-        }
 
         private void buttonAbbrechen_Click(object sender, EventArgs e)
         {
@@ -88,39 +74,39 @@ namespace Haushaltbuch
         private void buttonOK_Click(object sender, EventArgs e)
         {
             string einAus;
+            string tempbetrag;
             float betrag;
             string datum;
             string kategorie;
 
+
+            betrag = Convert.ToSingle(textBoxBetrag.Text);
+            tempbetrag = betrag.ToString("#0.00", CultureInfo.InvariantCulture);
+            betrag = Convert.ToSingle(tempbetrag);
+            datum = monthCalendar1.SelectionRange.Start.ToShortDateString();
+            kategorie = comboBox1.Text;
+
             //Einkommen
             if (radioButtonEin.Checked == true)
             {
-                einAus = "ein";
-                betrag = Convert.ToSingle(textBoxBetrag.Text);
-                datum = monthCalendar1.SelectionRange.Start.ToShortDateString();
-                kategorie = comboBox1.Text;
+                einAus = "E";
                 saldo = saldo + betrag;
 
             }
+            //Ausgabe
             else
             {
-                einAus = "aus";
-                betrag = Convert.ToSingle(textBoxBetrag.Text);
-                datum = monthCalendar1.SelectionRange.Start.ToShortDateString();
-                kategorie = comboBox1.Text;
+                einAus = "A";
                 saldo = saldo - betrag;
             }
 
-            SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            string sql = "Insert into Konto (EinAus,Betrag, Datum, Kategorie, Saldo) value($einAus,$betrag,$datum,$kategorie,$saldo)" ;
-            command = new SqlCommand(sql, cnn);
-            adapter.InsertCommand = new SqlCommand(sql, cnn);
-            adapter.InsertCommand.ExecuteNonQuery();
+//saldo.ToString("#,00",CultureInfo.InvariantCulture)
+            form.UpdateDaten(einAus, betrag.ToString(), datum, kategorie,"5,00");
+        }
 
-            command.Dispose();
-            cnn.Close();
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(monthCalendar1.SelectionRange.Start.ToLongDateString());
         }
     }
 }

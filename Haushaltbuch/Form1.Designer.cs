@@ -63,6 +63,7 @@
             this.buttonStat.TabIndex = 2;
             this.buttonStat.Text = "Statistik";
             this.buttonStat.UseVisualStyleBackColor = true;
+            this.buttonStat.Click += new System.EventHandler(this.buttonStat_Click);
             // 
             // progressBarEin
             // 
@@ -90,6 +91,7 @@
             this.Controls.Add(this.buttonNeu);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
