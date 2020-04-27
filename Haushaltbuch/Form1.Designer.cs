@@ -30,7 +30,6 @@
         {
             this.buttonNeu = new System.Windows.Forms.Button();
             this.buttonListe = new System.Windows.Forms.Button();
-            this.buttonStat = new System.Windows.Forms.Button();
             this.progressBarEin = new System.Windows.Forms.ProgressBar();
             this.progressBarAus = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
@@ -55,26 +54,16 @@
             this.buttonListe.UseVisualStyleBackColor = true;
             this.buttonListe.Click += new System.EventHandler(this.buttonListe_Click);
             // 
-            // buttonStat
-            // 
-            this.buttonStat.Location = new System.Drawing.Point(224, 12);
-            this.buttonStat.Name = "buttonStat";
-            this.buttonStat.Size = new System.Drawing.Size(75, 23);
-            this.buttonStat.TabIndex = 2;
-            this.buttonStat.Text = "Statistik";
-            this.buttonStat.UseVisualStyleBackColor = true;
-            this.buttonStat.Click += new System.EventHandler(this.buttonStat_Click);
-            // 
             // progressBarEin
             // 
-            this.progressBarEin.Location = new System.Drawing.Point(12, 273);
+            this.progressBarEin.Location = new System.Drawing.Point(12, 79);
             this.progressBarEin.Name = "progressBarEin";
             this.progressBarEin.Size = new System.Drawing.Size(100, 23);
             this.progressBarEin.TabIndex = 3;
             // 
             // progressBarAus
             // 
-            this.progressBarAus.Location = new System.Drawing.Point(161, 273);
+            this.progressBarAus.Location = new System.Drawing.Point(12, 117);
             this.progressBarAus.Name = "progressBarAus";
             this.progressBarAus.Size = new System.Drawing.Size(100, 23);
             this.progressBarAus.TabIndex = 4;
@@ -86,12 +75,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.progressBarAus);
             this.Controls.Add(this.progressBarEin);
-            this.Controls.Add(this.buttonStat);
             this.Controls.Add(this.buttonListe);
             this.Controls.Add(this.buttonNeu);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -100,7 +87,6 @@
 
         private System.Windows.Forms.Button buttonNeu;
         private System.Windows.Forms.Button buttonListe;
-        private System.Windows.Forms.Button buttonStat;
         private System.Windows.Forms.ProgressBar progressBarEin;
         private System.Windows.Forms.ProgressBar progressBarAus;
     }

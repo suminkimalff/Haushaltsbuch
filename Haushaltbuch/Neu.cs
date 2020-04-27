@@ -16,7 +16,7 @@ namespace Haushaltbuch
     {
         Form1 form = new Form1();
         float saldo;
-
+        string tempsaldo;
 
         public Neu()
         {
@@ -27,15 +27,14 @@ namespace Haushaltbuch
             monthCalendar1.ShowToday = true;
             //wird nur ein Tag gewaehlt
             monthCalendar1.MaxSelectionCount = 1;
-            //Datenbank verbinden
-            //form.DatenbankVerbinden();
-           // Saldo();
+            //Salo aufrufen
+            Saldo();
         }
         private void Saldo()
         {
             //saldo ermitteln
             saldo = form.GetSaldo();
-            string tempsaldo = saldo.ToString("#0.00", CultureInfo.InvariantCulture);
+            tempsaldo = saldo.ToString("F", new CultureInfo("de-DE"));
             saldo = Convert.ToSingle(tempsaldo);
         }
 
@@ -74,16 +73,13 @@ namespace Haushaltbuch
         private void buttonOK_Click(object sender, EventArgs e)
         {
             string einAus;
-            string tempbetrag;
             float betrag;
             string datum;
             string kategorie;
 
 
             betrag = Convert.ToSingle(textBoxBetrag.Text);
-            tempbetrag = betrag.ToString("#0.00", CultureInfo.InvariantCulture);
-            betrag = Convert.ToSingle(tempbetrag);
-            datum = monthCalendar1.SelectionRange.Start.ToShortDateString();
+            datum = monthCalendar1.SelectionRange.Start.ToString("dd/MM");
             kategorie = comboBox1.Text;
 
             //Einkommen
@@ -100,13 +96,15 @@ namespace Haushaltbuch
                 saldo = saldo - betrag;
             }
 
-//saldo.ToString("#,00",CultureInfo.InvariantCulture)
-            form.UpdateDaten(einAus, betrag.ToString(), datum, kategorie,"5,00");
+            string stringsaldo = saldo.ToString("F",new CultureInfo("de-DE"));
+            string stringbetrag=betrag.ToString("F", new CultureInfo("de-DE"));
+            form.UpdateDaten(einAus, stringbetrag, datum, kategorie, stringsaldo);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(monthCalendar1.SelectionRange.Start.ToLongDateString());
+            Saldo(); 
+            label1.Text = tempsaldo.ToString();
         }
     }
 }

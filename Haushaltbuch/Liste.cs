@@ -12,23 +12,18 @@ namespace Haushaltbuch
 {
     public partial class Liste : Form
     {
+        Form1 form = new Form1();
         public Liste()
         {
             InitializeComponent();
+            
         }
-
-        private void kontoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.kontoBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.haushaltsbuchDataSet);
-
-        }
+        
 
         private void Liste_Load(object sender, EventArgs e)
         {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "haushaltsbuchDataSet.Konto". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.kontoTableAdapter.Fill(this.haushaltsbuchDataSet.Konto);
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "haushaltsbuchDataSet1.Buch". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.buchTableAdapter.Fill(this.haushaltsbuchDataSet1.Buch);
 
         }
     }
